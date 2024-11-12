@@ -2,7 +2,7 @@ Class {
 	#name : 'DieHandleTest',
 	#superclass : 'TestCase',
 	#instVars : [
-		'handel'
+		'handle'
 	],
 	#category : 'MyDice',
 	#package : 'MyDice'
