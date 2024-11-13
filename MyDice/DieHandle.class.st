@@ -2,7 +2,9 @@ Class {
 	#name : 'DieHandle',
 	#superclass : 'Object',
 	#instVars : [
-		'dice'
+		'dice',
+		'maxHandle',
+		'resultsOfHandle'
 	],
 	#category : 'MyDice',
 	#package : 'MyDice'
@@ -53,14 +55,30 @@ DieHandle >> initialize [
 
 ]
 
+{ #category : 'accessing' }
+DieHandle >> maxHandle [
+	^ maxHandle
+]
+
+{ #category : 'accessing' }
+DieHandle >> results [
+	^ resultsOfHandle
+
+]
+
 { #category : 'initialization' }
 DieHandle >> roll [
 	"This method must collect the results of rolling each
 	 dice of the handle and sum them."
 
-	| sum |
+	| sum number |
 	sum := 0.
+	maxHandle := 0.
+	resultsOfHandle := OrderedCollection new.
 	dice do: [ :each |
-		sum := sum + each roll ].
+		number := each roll.
+		resultsOfHandle add: number.
+		maxHandle := maxHandle max: number.
+		sum := sum + number ].
 	^ sum
 ]
