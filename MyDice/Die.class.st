@@ -2,7 +2,8 @@ Class {
 	#name : 'Die',
 	#superclass : 'Object',
 	#instVars : [
-		'faces'
+		'faces',
+		'facesNumbers'
 	],
 	#category : 'MyDice',
 	#package : 'MyDice'
@@ -29,11 +30,18 @@ Die >> faces: aNumber [
 
 ]
 
+{ #category : 'accessing' }
+Die >> facesNumbers [
+	^ facesNumbers
+]
+
 { #category : 'initialization' }
 Die >> initialize [
 	"sets the default number of faces to 6."
 	
-	faces := 6
+	faces := 6.
+	facesNumbers := #( 1 2 3 4 5 6 )
+
 ]
 
 { #category : 'printing' }
@@ -49,7 +57,10 @@ Die >> printOn: aStream [
 { #category : 'initialization' }
 Die >> roll [
 	"draws randomly a number between one and faces."
-	
-	^ faces atRandom
+	"^ faces atRandom"
+
+	| i |
+	i := facesNumbers size atRandom.
+	^ facesNumbers at: i
 
 ]
