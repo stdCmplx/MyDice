@@ -17,7 +17,10 @@ CheaterPlayer >> rollDieHandles: aDieHandle [
 	 For example if he gets 2,3,4, after rolling its dice, he will
 	 say that he hot 4,4,4."
 	
-	super rollDieHandles: aDieHandle.
+	| handleRoll |
+	handleRoll := aDieHandle rollByPlayer: self.
+	resultsOfHandle := aDieHandle results.
+
 	^ (aDieHandle maxHandle) * aDieHandle diceNumber
 
 ]

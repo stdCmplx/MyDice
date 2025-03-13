@@ -8,16 +8,18 @@ Class {
 { #category : 'tests' }
 CheaterPlayerTest >> testRollDieHandles [
 
-	| player d1 d2 d3 handle number_max sum |
+	| player d1 d2 d3 d4 handle number_max sum |
 
 	player := CheaterPlayer new.
 	d1 := Die withFaces: 6.
 	d2 := Die withFaces: 10.
 	d3 := Die withFaces: 20.
+	d4 := CheatedDie new.
 	handle := DieHandle new
 		          addDie: d1;
 		          addDie: d2;
 		          addDie: d3;
+					addDie: d4;
 		          yourself.
 
 	sum := player rollDieHandles: handle.

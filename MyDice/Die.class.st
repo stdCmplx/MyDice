@@ -64,3 +64,10 @@ Die >> roll [
 	^ facesNumbers at: i
 
 ]
+
+{ #category : 'initialization' }
+Die >> rollByPlayer: aPlayer [
+
+	^ self roll
+
+]

@@ -24,7 +24,7 @@ Player >> rollDieHandles: aDieHandle [
 	 dice of the handle and sum them."
 	
 	| handleRoll |
-	handleRoll := aDieHandle roll.
+	handleRoll := aDieHandle rollByPlayer: self.
 	resultsOfHandle := aDieHandle results.
 	^ handleRoll
 

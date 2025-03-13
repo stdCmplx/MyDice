@@ -15,3 +15,12 @@ CheatedDie >> initialize [
 	facesNumbers := #( 3 4 5 6 6 6 )
 
 ]
+
+{ #category : 'initialization' }
+CheatedDie >> rollByPlayer: aPlayer [
+
+	(aPlayer class = CheaterPlayer)
+	 ifTrue: [ ^ self roll ]
+	 ifFalse: [ ^ nil ]
+
+]

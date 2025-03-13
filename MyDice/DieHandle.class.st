@@ -82,3 +82,18 @@ DieHandle >> roll [
 		sum := sum + number ].
 	^ sum
 ]
+
+{ #category : 'initialization' }
+DieHandle >> rollByPlayer: aPlayer [ 
+
+	| sum number |
+	sum := 0.
+	maxHandle := 0.
+	resultsOfHandle := OrderedCollection new.
+	dice do: [ :each |
+		number := each rollByPlayer: aPlayer.
+		resultsOfHandle add: number.
+		maxHandle := maxHandle max: number.
+		sum := sum + number ].
+	^ sum
+]

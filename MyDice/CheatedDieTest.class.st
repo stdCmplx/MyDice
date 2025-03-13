@@ -18,3 +18,19 @@ CheatedDieTest >> testRoll [
 	10 timesRepeat: [ self assert: (d roll between: 3 and: 6) ]
 
 ]
+
+{ #category : 'tests' }
+CheatedDieTest >> testRollByPlayer [
+	| d p1 p2 p3 p4 |
+	d := CheatedDie new.
+	p1 := Player new.
+	p2 := CheaterPlayer new.
+	p3 := LuckyPlayer new.
+	p4 := SuperLuckyPlayer new.
+	
+	self assert: (d rollByPlayer: p1) isNil.
+	self assert: ((d rollByPlayer: p2) between: 3 and: 6).
+	self assert: (d rollByPlayer: p3) isNil.
+	self assert: (d rollByPlayer: p4) isNil
+
+]
